@@ -16,6 +16,10 @@ const theme = {
       font-weight: 700;
       font-size: 26px;
     `,
+    thin: css`
+      font-weight: 400;
+      font-size: 16px;
+    `,
   },
 };
 
