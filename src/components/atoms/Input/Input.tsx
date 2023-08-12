@@ -2,23 +2,37 @@ import theme, { TypoType } from "@/styles/theme";
 import { ChangeEvent } from "react";
 import { styled } from "styled-components";
 
-interface Props {
+export interface InputProps {
+  type?: "text" | "password";
   value?: string | number | readonly string[] | undefined;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   typo: TypoType;
   py: number;
   px: number;
+  name?: string;
 }
 
-const Input = ({ value, onChange, placeholder, typo, py, px }: Props) => {
+const Input = ({
+  type,
+  value,
+  onChange,
+  placeholder,
+  typo,
+  py,
+  px,
+  name,
+}: InputProps) => {
   return (
     <Index
+      type={type}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
       typo={typo}
       style={{ padding: `${py}px ${px}px` }}
+      id={name}
+      name={name}
     />
   );
 };

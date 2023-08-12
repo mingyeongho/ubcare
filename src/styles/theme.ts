@@ -22,6 +22,10 @@ const theme = {
       font-weight: 400;
       font-size: 16px;
     `,
+    xthin: css`
+      font-weight: 400;
+      font-size: 14px;
+    `,
   },
 };
 

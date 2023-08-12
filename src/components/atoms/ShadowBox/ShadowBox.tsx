@@ -1,5 +1,3 @@
-"use client";
-
 import theme, { ShadowType } from "@/styles/theme";
 import { PropsWithChildren } from "react";
 import { styled } from "styled-components";
