@@ -1,4 +1,3 @@
-import StyledComponentsRegistry from "@/utils/lib/registry";
 import type { Metadata } from "next";
 import Provider from "./provider";
 
@@ -15,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
-        <StyledComponentsRegistry>
-          <Provider>{children}</Provider>
-        </StyledComponentsRegistry>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
