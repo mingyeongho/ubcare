@@ -7,6 +7,7 @@ import Icon from "../atoms/Icon/Icon";
 import icons from "@/styles/icons";
 import LabelInput from "../molecules/LabelInput/LabelInput";
 import { ChangeEvent } from "react";
+import Button from "../atoms/Button/Button";
 
 interface Props {
   id: string;
@@ -52,6 +53,16 @@ const LoginPageTemplate = ({ id, pw, onChangeInput }: Props) => {
               px={19}
               typo="xthin"
             />
+            <ButtonWrapper>
+              <Button
+                label="로그인"
+                typo="bold2"
+                color="white"
+                borderRadius={8}
+                bgColor="blue1"
+                isActive={id && pw ? true : false}
+              />
+            </ButtonWrapper>
           </Wrapper>
         </ShadowBox>
       </ShadowWrapper>
@@ -73,7 +84,6 @@ const Container = styled.main`
 
 const ShadowWrapper = styled.div`
   width: 600px;
-  height: 470px;
 `;
 
 const Wrapper = styled.div`
@@ -86,4 +96,8 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+const ButtonWrapper = styled.div`
+  height: 60px;
 `;

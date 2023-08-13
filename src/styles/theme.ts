@@ -7,6 +7,7 @@ const theme = {
     gray2: "#4F4F4F",
     gray3: "#828282",
     gray4: "#bdbdbd",
+    blue1: "#007AFF",
   },
 
   shadow: {
@@ -17,6 +18,10 @@ const theme = {
     bold: css`
       font-weight: 700;
       font-size: 26px;
+    `,
+    bold2: css`
+      font-weight: 700;
+      font-size: 16px;
     `,
     thin: css`
       font-weight: 400;
