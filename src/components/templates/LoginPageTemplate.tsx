@@ -25,11 +25,6 @@ const LoginPageTemplate = ({ id, pw, onChangeInput }: Props) => {
               <Text label="Admin" color="gray1" typo="bold" />
               <Icon icon={icons.cancel} size={24} />
             </Header>
-            <Text
-              label="해고하시려면 해고하기 버튼을 눌러주세요."
-              color="gray2"
-              typo="thin"
-            />
             <LabelInput
               label="아이디"
               value={id}

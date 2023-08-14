@@ -39,7 +39,9 @@ const Input = ({
 
 export default Input;
 
-const Index = styled.input<{ typo: TypoType }>`
+const Index = styled.input<{
+  typo: TypoType;
+}>`
   width: 100%;
   height: 100%;
   border-radius: 8px;
