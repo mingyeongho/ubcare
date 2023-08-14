@@ -7,10 +7,12 @@ const theme = {
     gray2: "#4F4F4F",
     gray3: "#828282",
     gray4: "#bdbdbd",
+    gray5: "#F2F2F2",
     blue1: "#007AFF",
   },
 
   shadow: {
+    thin: "0px 4px 8px 0px rgba(0, 0, 0, 0.20)",
     normal: "0px 8px 16px 0px rgba(0, 0, 0, 0.20)",
   },
 
