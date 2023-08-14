@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Provider from "./provider";
+import StyledComponentsRegistry from "@/utils/lib/registry";
 
 export const metadata: Metadata = {
   title: "UbCare",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body>
-        <Provider>{children}</Provider>
+        <StyledComponentsRegistry>
+          <Provider>{children}</Provider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
