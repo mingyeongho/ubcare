@@ -2,7 +2,7 @@ import theme, { ColorType, TypoType } from "@/styles/theme";
 import { styled } from "styled-components";
 
 interface Props {
-  label: string;
+  label: string | number;
   typo: TypoType;
   color: ColorType;
 }
@@ -19,5 +19,5 @@ export default Text;
 
 const Index = styled.span<{ typo: TypoType; color: ColorType }>`
   ${({ typo }) => theme.typo[typo]}
-  ${({ color }) => theme.color[color]}
+  color: ${({ color }) => theme.color[color]}
 `;

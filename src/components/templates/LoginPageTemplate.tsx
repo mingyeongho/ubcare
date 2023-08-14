@@ -22,7 +22,7 @@ const LoginPageTemplate = ({ id, pw, onChangeInput }: Props) => {
         <ShadowBox borderRadius={16} py={48} px={48} shadow="normal">
           <Wrapper>
             <Header>
-              <Text label="Admin" color="gray1" typo="bold" />
+              <Text label="Admin" color="gray1" typo="bold2" />
               <Icon icon={icons.cancel} size={24} />
             </Header>
             <LabelInput
@@ -34,7 +34,7 @@ const LoginPageTemplate = ({ id, pw, onChangeInput }: Props) => {
               gap={8}
               py={15}
               px={19}
-              typo="xthin"
+              typo="regular6"
             />
             <LabelInput
               type="password"
@@ -46,12 +46,12 @@ const LoginPageTemplate = ({ id, pw, onChangeInput }: Props) => {
               gap={8}
               py={15}
               px={19}
-              typo="xthin"
+              typo="regular6"
             />
             <ButtonWrapper>
               <Button
                 label="로그인"
-                typo="bold2"
+                typo="bold4"
                 color="white"
                 borderRadius={8}
                 bgColor="blue1"
