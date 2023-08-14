@@ -58,6 +58,12 @@ const SummaryBoard = ({
                 typo="medium6"
               />
             </FluctuationWrapper>
+            <Text
+              label="View More"
+              color="blue3"
+              typo="bold7"
+              isUnderline={true}
+            />
           </FooterWrapper>
         </Wrapper>
       </Container>
@@ -73,6 +79,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -88,6 +95,7 @@ const ValueWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-top: 6px;
 `;
 
 const FooterWrapper = styled.div`

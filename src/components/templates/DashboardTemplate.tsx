@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import SummaryBoard, {
   SummaryBoardProps,
 } from "../molecules/SummaryBoard/SummaryBoard";
+import Text from "../atoms/Text/Text";
 
 interface Props {
   summaryBoards: SummaryBoardProps[];
@@ -13,11 +14,17 @@ const DashboardTemplate = ({ summaryBoards }: Props) => {
   return (
     <Container>
       <Wrapper>
-        <SummaryBoardsWrapper>
-          {summaryBoards.map((summaryBoard, idx) => (
-            <SummaryBoard {...summaryBoard} key={idx} />
-          ))}
-        </SummaryBoardsWrapper>
+        <BoardWrapper>
+          <Text label="EMR 연동 현황" color="gray7" typo="bold2" />
+          <SummaryBoardsWrapper>
+            {summaryBoards.map((summaryBoard, idx) => (
+              <SummaryBoard {...summaryBoard} key={idx} />
+            ))}
+          </SummaryBoardsWrapper>
+        </BoardWrapper>
+        <BoardWrapper>
+          <Text label="EMR 연동 의원수" color="gray7" typo="bold2" />
+        </BoardWrapper>
       </Wrapper>
     </Container>
   );
@@ -34,6 +41,15 @@ const Container = styled.main`
 const Wrapper = styled.div`
   width: 1080px;
   max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`;
+
+const BoardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const SummaryBoardsWrapper = styled.div`
