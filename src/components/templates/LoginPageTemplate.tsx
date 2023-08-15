@@ -55,7 +55,7 @@ const LoginPageTemplate = ({ id, pw, onChangeInput }: Props) => {
                 color="white"
                 borderRadius={8}
                 bgColor="blue1"
-                isActive={id && pw ? true : false}
+                isDisabled={id && pw ? true : false}
               />
             </ButtonWrapper>
           </Wrapper>

@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 interface Props {
   label: string;
   onClick?: () => void;
-  isActive?: boolean;
+  isDisabled?: boolean;
   typo: TypoType;
   color: ColorType;
   bgColor: ColorType;
@@ -14,7 +14,7 @@ interface Props {
 const Button = ({
   label,
   onClick,
-  isActive = true,
+  isDisabled = true,
   typo,
   color,
   bgColor,
@@ -23,7 +23,7 @@ const Button = ({
   return (
     <Index
       onClick={onClick}
-      isActive={isActive}
+      isDisabled={isDisabled}
       typo={typo}
       color={color}
       bgColor={bgColor}
@@ -37,7 +37,7 @@ const Button = ({
 export default Button;
 
 const Index = styled.button<{
-  isActive: boolean;
+  isDisabled: boolean;
   typo: TypoType;
   color: ColorType;
   bgColor: ColorType;
@@ -47,10 +47,14 @@ const Index = styled.button<{
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: ${({ isActive }) => (isActive ? "pointer" : "no-drop")};
-  opacity: ${({ isActive }) => !isActive && 0.3};
+  cursor: ${({ isDisabled }) => (isDisabled ? "pointer" : "no-drop")};
+  opacity: ${({ isDisabled }) => !isDisabled && 0.3};
   ${({ typo }) => theme.typo[typo]}
   color: ${({ color }) => theme.color[color]};
   border: none;
   background-color: ${({ bgColor }) => theme.color[bgColor]};
+
+  &:hover {
+    opacity: ${({ isDisabled }) => isDisabled && 0.7};
+  }
 `;
