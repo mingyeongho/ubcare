@@ -1,12 +1,11 @@
 "use client";
 
 import { styled } from "styled-components";
-import SummaryBoard, {
-  SummaryBoardProps,
-} from "../molecules/SummaryBoard/SummaryBoard";
-import Text from "../atoms/Text/Text";
+import { SummaryBoardProps } from "../molecules/SummaryBoard/SummaryBoard";
 import { GraphStateType } from "@/utils/types";
-import ShadowBox from "../atoms/ShadowBox/ShadowBox";
+import DashboardSummaryEMR from "../organisms/DashboardSummaryEMR/DashboardSummaryEMR";
+import DashboardDetailEMR from "../organisms/DashboardDetailEMR/DashboardDetailEMR";
+import DashboardGridContainer from "../organisms/DashboardGridContainer/DashboardGridContainer";
 
 interface Props {
   currGraphState: GraphStateType;
@@ -17,21 +16,9 @@ const DashboardTemplate = ({ currGraphState, summaryBoards }: Props) => {
   return (
     <Container>
       <Wrapper>
-        <BoardWrapper>
-          <Text label="EMR 연동 현황" color="gray7" typo="bold2" />
-          <SummaryBoardsWrapper>
-            {summaryBoards.map((summaryBoard, idx) => (
-              <SummaryBoard {...summaryBoard} key={idx} />
-            ))}
-          </SummaryBoardsWrapper>
-        </BoardWrapper>
-        <BoardWrapper>
-          <Text label="EMR 연동 의원수" color="gray7" typo="bold2" />
-          {currGraphState}
-        </BoardWrapper>
-        <ShadowBox borderRadius={8} py={0} px={0} shadow="thin">
-          a
-        </ShadowBox>
+        <DashboardSummaryEMR summaryBoards={summaryBoards} />
+        <DashboardDetailEMR currGraphState={currGraphState} />
+        <DashboardGridContainer />
       </Wrapper>
     </Container>
   );
@@ -51,16 +38,4 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-`;
-
-const BoardWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-const SummaryBoardsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 350px);
-  gap: 15px;
 `;
