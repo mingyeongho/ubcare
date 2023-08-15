@@ -1,3 +1,5 @@
+"use client";
+
 import theme, { ColorType, TypoType } from "@/styles/theme";
 import { styled } from "styled-components";
 
@@ -5,12 +7,12 @@ interface Props {
   label: string | number;
   typo: TypoType;
   color: ColorType;
-  isUnderline?: boolean;
+  is_underline?: boolean;
 }
 
-const Text = ({ label, typo, color, isUnderline = false }: Props) => {
+const Text = ({ label, typo, color, is_underline = false }: Props) => {
   return (
-    <Index typo={typo} color={color} isUnderline={isUnderline}>
+    <Index $typo={typo} color={color} $is_underline={is_underline}>
       {label}
     </Index>
   );
@@ -19,11 +21,11 @@ const Text = ({ label, typo, color, isUnderline = false }: Props) => {
 export default Text;
 
 const Index = styled.span<{
-  typo: TypoType;
+  $typo: TypoType;
   color: ColorType;
-  isUnderline: boolean;
+  $is_underline: boolean;
 }>`
-  ${({ typo }) => theme.typo[typo]}
+  ${({ $typo }) => theme.typo[$typo]}
   color: ${({ color }) => theme.color[color]};
-  text-decoration: ${({ isUnderline }) => isUnderline && "underline"};
+  text-decoration: ${({ $is_underline }) => $is_underline && "underline"};
 `;

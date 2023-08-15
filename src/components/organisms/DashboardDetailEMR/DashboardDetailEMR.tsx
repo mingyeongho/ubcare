@@ -1,3 +1,5 @@
+"use client";
+
 import Text from "@/components/atoms/Text/Text";
 import { EMR_DETAIL_NAME } from "@/utils/constant";
 import { GraphStateType } from "@/utils/types";

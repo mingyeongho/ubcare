@@ -13,7 +13,7 @@ const ShadowBox = ({ borderRadius, shadow, py, px, children }: Props) => {
   return (
     <Container
       style={{ borderRadius, padding: `${py}px ${px}px` }}
-      shadow={shadow}
+      $shadow={shadow}
     >
       {children}
     </Container>
@@ -22,9 +22,10 @@ const ShadowBox = ({ borderRadius, shadow, py, px, children }: Props) => {
 
 export default ShadowBox;
 
-const Container = styled.div<{ shadow: ShadowType }>`
+const Container = styled.div<{ $shadow: ShadowType }>`
   background-color: ${theme.color.white};
   width: 100%;
   height: 100%;
-  box-shadow: ${({ shadow }) => theme.shadow[shadow]};
+  box-shadow: ${({ $shadow }) => theme.shadow[$shadow]};
+  overflow: hidden;
 `;

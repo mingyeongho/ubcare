@@ -7,9 +7,10 @@ interface Props {
   };
   size: number;
   cursorPointer?: boolean;
+  priority?: boolean;
 }
 
-const Icon = ({ icon, size, cursorPointer = true }: Props) => {
+const Icon = ({ icon, size, cursorPointer = true, priority = true }: Props) => {
   return (
     <Image
       src={icon.src}
@@ -17,6 +18,7 @@ const Icon = ({ icon, size, cursorPointer = true }: Props) => {
       width={size}
       height={size}
       style={{ cursor: cursorPointer ? "pointer" : "auto" }}
+      priority={priority}
     />
   );
 };

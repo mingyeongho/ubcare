@@ -13,6 +13,7 @@ const theme = {
     blue1: "#007AFF",
     blue2: "#1D5B79",
     blue3: "#296AFF",
+    blue4: "#1C57DB",
     red1: "#EF6262",
   },
 

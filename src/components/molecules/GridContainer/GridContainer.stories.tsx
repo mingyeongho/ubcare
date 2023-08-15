@@ -1,24 +1,19 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Tooltip from "./Tooltip";
+import GridContainer from "./GridContainer";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "components/atoms/Tooltip",
-  component: Tooltip,
-} as ComponentMeta<typeof Tooltip>;
+  title: "components/molecules/GridContainer",
+  component: GridContainer,
+} as ComponentMeta<typeof GridContainer>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Tooltip> = (args) => (
-  <Tooltip {...args} />
+const Template: ComponentStory<typeof GridContainer> = (args) => (
+  <GridContainer {...args} />
 );
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  label: `[ 이용권 금액 (Vat포함) ]
-Event 0원
-Basic 19,900원
-Standard 129,800원`,
-};
+Primary.args = {};

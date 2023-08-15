@@ -65,7 +65,7 @@ const SummaryBoard = ({
                 label="View More"
                 color="blue3"
                 typo="bold7"
-                isUnderline={true}
+                is_underline={true}
               />
             </ViewMoreWrapper>
           </FooterWrapper>

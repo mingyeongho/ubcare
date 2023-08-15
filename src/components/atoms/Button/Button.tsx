@@ -1,3 +1,5 @@
+"use client";
+
 import theme, { ColorType, TypoType } from "@/styles/theme";
 import { styled } from "styled-components";
 

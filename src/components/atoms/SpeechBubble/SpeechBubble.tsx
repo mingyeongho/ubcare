@@ -5,7 +5,7 @@ interface Props {
   label: string;
 }
 
-const Tooltip = ({ label }: Props) => {
+const SpeechBubble = ({ label }: Props) => {
   return (
     <Index>
       <Pre>{label}</Pre>
@@ -13,15 +13,15 @@ const Tooltip = ({ label }: Props) => {
   );
 };
 
-export default Tooltip;
+export default SpeechBubble;
 
 const Index = styled.div`
   width: fit-content;
 
   padding: 15px;
   background-color: ${theme.color.gray2};
+  opacity: 0.9;
   border-radius: 8px;
-  fill: rgba(51, 51, 51, 0.9);
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2));
 
   &:after {
