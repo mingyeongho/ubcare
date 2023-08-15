@@ -5,12 +5,14 @@ import SummaryBoard, {
   SummaryBoardProps,
 } from "../molecules/SummaryBoard/SummaryBoard";
 import Text from "../atoms/Text/Text";
+import { GraphStateType } from "@/utils/types";
 
 interface Props {
+  currGraphState: GraphStateType;
   summaryBoards: SummaryBoardProps[];
 }
 
-const DashboardTemplate = ({ summaryBoards }: Props) => {
+const DashboardTemplate = ({ currGraphState, summaryBoards }: Props) => {
   return (
     <Container>
       <Wrapper>
@@ -24,6 +26,7 @@ const DashboardTemplate = ({ summaryBoards }: Props) => {
         </BoardWrapper>
         <BoardWrapper>
           <Text label="EMR 연동 의원수" color="gray7" typo="bold2" />
+          {currGraphState}
         </BoardWrapper>
       </Wrapper>
     </Container>

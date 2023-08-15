@@ -14,6 +14,7 @@ export interface SummaryBoardProps {
   value: number;
   unit: "num" | "won";
   fluctuation: number; // 등락률
+  onClickViewMore?: () => void;
 }
 
 const SummaryBoard = ({
@@ -23,6 +24,7 @@ const SummaryBoard = ({
   value,
   unit,
   fluctuation,
+  onClickViewMore,
 }: SummaryBoardProps) => {
   return (
     <ShadowBox borderRadius={8} py={27} px={18} shadow="thin">
@@ -58,12 +60,14 @@ const SummaryBoard = ({
                 typo="medium6"
               />
             </FluctuationWrapper>
-            <Text
-              label="View More"
-              color="blue3"
-              typo="bold7"
-              isUnderline={true}
-            />
+            <ViewMoreWrapper onClick={onClickViewMore}>
+              <Text
+                label="View More"
+                color="blue3"
+                typo="bold7"
+                isUnderline={true}
+              />
+            </ViewMoreWrapper>
           </FooterWrapper>
         </Wrapper>
       </Container>
@@ -108,4 +112,8 @@ const FluctuationWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+`;
+
+const ViewMoreWrapper = styled.div`
+  cursor: pointer;
 `;
