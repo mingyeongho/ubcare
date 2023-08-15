@@ -6,6 +6,7 @@ import SummaryBoard, {
 } from "../molecules/SummaryBoard/SummaryBoard";
 import Text from "../atoms/Text/Text";
 import { GraphStateType } from "@/utils/types";
+import ShadowBox from "../atoms/ShadowBox/ShadowBox";
 
 interface Props {
   currGraphState: GraphStateType;
@@ -28,6 +29,9 @@ const DashboardTemplate = ({ currGraphState, summaryBoards }: Props) => {
           <Text label="EMR 연동 의원수" color="gray7" typo="bold2" />
           {currGraphState}
         </BoardWrapper>
+        <ShadowBox borderRadius={8} py={0} px={0} shadow="thin">
+          a
+        </ShadowBox>
       </Wrapper>
     </Container>
   );
