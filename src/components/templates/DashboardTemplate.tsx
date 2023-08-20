@@ -5,7 +5,7 @@ import { SummaryBoardProps } from "../molecules/SummaryBoard/SummaryBoard";
 import { GraphStateType } from "@/utils/types";
 import DashboardSummaryEMR from "../organisms/DashboardSummaryEMR/DashboardSummaryEMR";
 import DashboardDetailEMR from "../organisms/DashboardDetailEMR/DashboardDetailEMR";
-import DashboardGridContainer from "../organisms/DashboardGridContainer/DashboardGridContainer";
+import DashboardTable from "../organisms/DashboardTable/DashboardTable";
 
 interface Props {
   currGraphState: GraphStateType;
@@ -18,7 +18,7 @@ const DashboardTemplate = ({ currGraphState, summaryBoards }: Props) => {
       <Wrapper>
         <DashboardSummaryEMR summaryBoards={summaryBoards} />
         <DashboardDetailEMR currGraphState={currGraphState} />
-        <DashboardGridContainer />
+        <DashboardTable />
       </Wrapper>
     </Container>
   );
@@ -34,7 +34,6 @@ const Container = styled.main`
 
 const Wrapper = styled.div`
   width: 1080px;
-  max-width: 90%;
   display: flex;
   flex-direction: column;
   gap: 40px;

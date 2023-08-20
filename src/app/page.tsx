@@ -8,9 +8,11 @@ export default function Home() {
 
   return (
     <LoginPageTemplate
-      id={value.id}
-      pw={value.pw}
-      onChangeInput={onChangeInput}
+      loginBoardProps={{
+        id: value.id,
+        pw: value.pw,
+        onChangeInput: onChangeInput,
+      }}
     />
   );
 }

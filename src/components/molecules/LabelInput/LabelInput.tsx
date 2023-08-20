@@ -1,30 +1,29 @@
 import Input, { InputProps } from "@/components/atoms/Input/Input";
-import theme, { TypoType } from "@/styles/theme";
+import Label, { LabelProps } from "@/components/atoms/Label/Label";
 import { styled } from "styled-components";
 
-interface Props extends InputProps {
-  label: string;
-  gap: number;
-}
+export type LabelInputStyleProps = {
+  $gap: number;
+};
 
-const LabelInput = ({ label, gap, ...props }: Props) => {
+export type LabelInputProps = LabelInputStyleProps & {
+  labelProps: LabelProps;
+  inputProps: InputProps;
+};
+
+const LabelInput = ({ labelProps, inputProps, ...props }: LabelInputProps) => {
   return (
-    <Container style={{ gap }}>
-      <Label htmlFor={props.name} typo={props.typo}>
-        {label}
-      </Label>
-      <Input name={props.name} {...props} />
+    <Container {...props}>
+      <Label {...labelProps} />
+      <Input {...inputProps} />
     </Container>
   );
 };
 
 export default LabelInput;
 
-const Container = styled.div`
+const Container = styled.div<LabelInputStyleProps>`
   display: flex;
   flex-direction: column;
-`;
-
-const Label = styled.label<{ typo: TypoType }>`
-  ${({ typo }) => theme.typo[typo]}
+  gap: ${({ $gap }) => `${$gap}px`};
 `;

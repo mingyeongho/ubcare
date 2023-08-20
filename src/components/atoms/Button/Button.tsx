@@ -3,34 +3,27 @@
 import theme, { ColorType, TypoType } from "@/styles/theme";
 import { styled } from "styled-components";
 
-interface Props {
+export type ButtonStyleProps = {
+  $typo: TypoType;
+  $color: ColorType;
+  $bg_color: ColorType;
+  $border_radius: number;
+};
+
+export type ButtonProps = ButtonStyleProps & {
   label: string;
   onClick?: () => void;
-  isDisabled?: boolean;
-  typo: TypoType;
-  color: ColorType;
-  bgColor: ColorType;
-  borderRadius: number;
-}
+  is_disabled?: boolean;
+};
 
 const Button = ({
   label,
   onClick,
-  isDisabled = true,
-  typo,
-  color,
-  bgColor,
-  borderRadius,
-}: Props) => {
+  is_disabled = true,
+  ...props
+}: ButtonProps) => {
   return (
-    <Index
-      onClick={onClick}
-      isDisabled={isDisabled}
-      typo={typo}
-      color={color}
-      bgColor={bgColor}
-      style={{ borderRadius }}
-    >
+    <Index onClick={onClick} $is_disabled={is_disabled} {...props}>
       {label}
     </Index>
   );
@@ -38,25 +31,22 @@ const Button = ({
 
 export default Button;
 
-const Index = styled.button<{
-  isDisabled: boolean;
-  typo: TypoType;
-  color: ColorType;
-  bgColor: ColorType;
-}>`
+const Index = styled.button<ButtonStyleProps & { $is_disabled: boolean }>`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: ${({ isDisabled }) => (isDisabled ? "pointer" : "no-drop")};
-  opacity: ${({ isDisabled }) => !isDisabled && 0.3};
-  ${({ typo }) => theme.typo[typo]}
-  color: ${({ color }) => theme.color[color]};
   border: none;
-  background-color: ${({ bgColor }) => theme.color[bgColor]};
+
+  cursor: ${({ $is_disabled }) => ($is_disabled ? "pointer" : "no-drop")};
+  opacity: ${({ $is_disabled }) => !$is_disabled && 0.3};
+  ${({ $typo }) => theme.typo[$typo]}
+  color: ${({ $color }) => theme.color[$color]};
+  background-color: ${({ $bg_color }) => theme.color[$bg_color]};
+  border-radius: ${({ $border_radius }) => `${$border_radius}px`};
 
   &:hover {
-    opacity: ${({ isDisabled }) => isDisabled && 0.7};
+    opacity: ${({ $is_disabled }) => $is_disabled && 0.7};
   }
 `;

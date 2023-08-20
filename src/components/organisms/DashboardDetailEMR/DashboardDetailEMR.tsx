@@ -1,22 +1,28 @@
 "use client";
 
-import Text from "@/components/atoms/Text/Text";
+import Text, { TextProps, TextStyleProps } from "@/components/atoms/Text/Text";
 import { EMR_DETAIL_NAME } from "@/utils/constant";
 import { GraphStateType } from "@/utils/types";
 import { styled } from "styled-components";
 
-interface Props {
+export type DashboardDetailEMRProps = {
   currGraphState: GraphStateType;
-}
+};
 
-const DashboardDetailEMR = ({ currGraphState }: Props) => {
+const DashboardDetailEMR = ({ currGraphState }: DashboardDetailEMRProps) => {
+  const titleStyleProps: TextStyleProps = {
+    $typo: "bold2",
+    $color: "gray7",
+  };
+
+  const titleProps: TextProps = {
+    label: "EMR 연동 의원수",
+    ...titleStyleProps,
+  };
+
   return (
     <Container>
-      <Text
-        label={EMR_DETAIL_NAME[currGraphState]}
-        color="gray7"
-        typo="bold2"
-      />
+      <Text {...titleProps} />
       {currGraphState}
     </Container>
   );

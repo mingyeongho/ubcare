@@ -1,10 +1,12 @@
-import Icon from "@/components/atoms/Icon/Icon";
-import ShadowBox from "@/components/atoms/ShadowBox/ShadowBox";
-import Text from "@/components/atoms/Text/Text";
+import Icon, { IconProps, IconStyleProps } from "@/components/atoms/Icon/Icon";
+import ShadowBox, {
+  ShadowBoxStyleProps,
+} from "@/components/atoms/ShadowBox/ShadowBox";
+import Text, { TextProps, TextStyleProps } from "@/components/atoms/Text/Text";
 import icons from "@/styles/icons";
 import { styled } from "styled-components";
 
-export interface SummaryBoardProps {
+export type SummaryBoardProps = {
   icon: {
     src: string;
     alt: string;
@@ -15,7 +17,7 @@ export interface SummaryBoardProps {
   unit: "num" | "won";
   fluctuation: number; // 등락률
   onClickViewMore?: () => void;
-}
+};
 
 const SummaryBoard = ({
   icon,
@@ -26,47 +28,115 @@ const SummaryBoard = ({
   fluctuation,
   onClickViewMore,
 }: SummaryBoardProps) => {
+  // ------------------------------------------------------
+  const shadowBoxStyleProps: ShadowBoxStyleProps = {
+    $border_radius: 8,
+    $py: 27,
+    $px: 18,
+    $shadow: "thin",
+  };
+  // -------------------------------------------------------
+  const iconStyleProps: IconStyleProps = {
+    $size: 96,
+    $cursor_pointer: false,
+  };
+
+  const iconProps: IconProps = {
+    icon,
+    ...iconStyleProps,
+  };
+  // -----------------------------------------------------
+  const titleStyleProps: TextStyleProps = {
+    $typo: "bold5",
+    $color: "gray6",
+  };
+
+  const titleProps: TextProps = {
+    label: title,
+    ...titleStyleProps,
+  };
+  // -----------------------------------------------------
+  const subTitleStyleProps: TextStyleProps = {
+    $typo: "medium7",
+    $color: "gray6",
+  };
+
+  const subTitleProps: TextProps = {
+    label: `(${subTitle})`,
+    ...subTitleStyleProps,
+  };
+  // ------------------------------------------------------
+  const valueStyleProps: TextStyleProps = {
+    $typo: "bold1",
+    $color: "gray7",
+  };
+
+  const valueProps: TextProps = {
+    label: value,
+    ...valueStyleProps,
+  };
+  // -----------------------------------------------------
+  const unitStyleProps: TextStyleProps = {
+    $typo: "bold3",
+    $color: "gray7",
+  };
+
+  const unitProps: TextProps = {
+    label: unit === "num" ? "개" : "원",
+    ...unitStyleProps,
+  };
+  // ------------------------------------------------------
+  const fluctuationIconStyleProps: IconStyleProps = {
+    $size: 19,
+    $cursor_pointer: false,
+  };
+
+  const fluctuationIconProps: IconProps = {
+    icon:
+      fluctuation > 0 ? icons.arrowCircleUpRight : icons.arrowCircleDownLeft,
+    ...fluctuationIconStyleProps,
+  };
+  // -----------------------------------------------------------
+  const fluctuationTextStyleProps: TextStyleProps = {
+    $typo: "medium6",
+    $color: fluctuation > 0 ? "blue2" : "red1",
+  };
+
+  const fluctuationTextProps: TextProps = {
+    label: fluctuation > 0 ? `+${fluctuation}%` : `${fluctuation}%`,
+    ...fluctuationTextStyleProps,
+  };
+  // --------------------------------------------------------------
+  const viewmoreTextStyleProps: TextStyleProps = {
+    $typo: "bold7",
+    $color: "blue3",
+    $is_underline: true,
+  };
+
+  const viewmoreTextProps: TextProps = {
+    label: "View More",
+    ...viewmoreTextStyleProps,
+  };
   return (
-    <ShadowBox borderRadius={8} py={27} px={18} shadow="thin">
+    <ShadowBox {...shadowBoxStyleProps}>
       <Container>
-        <Icon icon={icon} size={96} cursorPointer={false} />
+        <Icon {...iconProps} />
         <Wrapper>
           <TitleWrapper>
-            <Text label={title} color="gray6" typo="bold5" />
-            <Text label={`(${subTitle})`} color="gray6" typo="medium7" />
+            <Text {...titleProps} />
+            <Text {...subTitleProps} />
           </TitleWrapper>
           <ValueWrapper>
-            <Text label={value} color="gray7" typo="bold1" />
-            <Text
-              label={unit === "num" ? "개" : "원"}
-              color="gray7"
-              typo="bold3"
-            />
+            <Text {...valueProps} />
+            <Text {...unitProps} />
           </ValueWrapper>
           <FooterWrapper>
             <FluctuationWrapper>
-              <Icon
-                icon={
-                  fluctuation > 0
-                    ? icons.arrowCircleUpRight
-                    : icons.arrowCircleDownLeft
-                }
-                size={19}
-                cursorPointer={false}
-              />
-              <Text
-                label={fluctuation > 0 ? `+${fluctuation}%` : `${fluctuation}%`}
-                color={fluctuation > 0 ? "blue2" : "red1"}
-                typo="medium6"
-              />
+              <Icon {...fluctuationIconProps} />
+              <Text {...fluctuationTextProps} />
             </FluctuationWrapper>
             <ViewMoreWrapper onClick={onClickViewMore}>
-              <Text
-                label="View More"
-                color="blue3"
-                typo="bold7"
-                is_underline={true}
-              />
+              <Text {...viewmoreTextProps} />
             </ViewMoreWrapper>
           </FooterWrapper>
         </Wrapper>

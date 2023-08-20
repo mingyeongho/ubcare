@@ -1,19 +1,29 @@
 "use client";
 
-import Text from "@/components/atoms/Text/Text";
+import Text, { TextProps, TextStyleProps } from "@/components/atoms/Text/Text";
 import SummaryBoard, {
   SummaryBoardProps,
 } from "@/components/molecules/SummaryBoard/SummaryBoard";
 import { styled } from "styled-components";
 
-interface Props {
+export type DashboardSummaryEMRProps = {
   summaryBoards: SummaryBoardProps[];
-}
+};
 
-const DashboardSummaryEMR = ({ summaryBoards }: Props) => {
+const DashboardSummaryEMR = ({ summaryBoards }: DashboardSummaryEMRProps) => {
+  const titleStyleProps: TextStyleProps = {
+    $typo: "bold2",
+    $color: "gray7",
+  };
+
+  const titleProps: TextProps = {
+    label: "EMR 연동 현황",
+    ...titleStyleProps,
+  };
+
   return (
     <Container>
-      <Text label="EMR 연동 현황" color="gray7" typo="bold2" />
+      <Text {...titleProps} />
       <SummaryBoardsWrapper>
         {summaryBoards.map((summaryBoard, idx) => (
           <SummaryBoard {...summaryBoard} key={idx} />
